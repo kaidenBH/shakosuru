@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/shakosuru/static/css/main.e6eab37a.css",
-    "main.js": "/shakosuru/static/js/main.70a319c8.js",
+    "main.js": "/shakosuru/static/js/main.3d8af989.js",
     "static/media/brainlogo.svg": "/shakosuru/static/media/brainlogo.90f0c6ef767198699e1c50187e25973d.svg",
     "static/media/memories.png": "/shakosuru/static/media/memories.9cfa8a4697e085d87136.png",
     "index.html": "/shakosuru/index.html",
     "static/media/shakosuru-Text.svg": "/shakosuru/static/media/shakosuru-Text.7673935ca1fa6c1a670be61030d1e640.svg",
     "main.e6eab37a.css.map": "/shakosuru/static/css/main.e6eab37a.css.map",
-    "main.70a319c8.js.map": "/shakosuru/static/js/main.70a319c8.js.map"
+    "main.3d8af989.js.map": "/shakosuru/static/js/main.3d8af989.js.map"
   },
   "entrypoints": [
     "static/css/main.e6eab37a.css",
-    "static/js/main.70a319c8.js"
+    "static/js/main.3d8af989.js"
   ]
 }
