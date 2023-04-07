@@ -40,6 +40,7 @@ const Post = ({ post, setCurrentId }) => {
       <div className={classes.overlay2}>
       {(user?.result?.id === post?.creator || user?.result?._id === post?.creator) &&
         <Button 
+          className='EditPostButton'
           style={{color: 'white'}} 
           size='small' 
           onClick={() => setCurrentId(post._id)}>

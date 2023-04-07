@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react'
-import { TextField, Button, Typography, Paper } from '@material-ui/core';
+import { TextField, Button, Typography, Paper, Container } from '@material-ui/core';
 import useStyles from './styles';
 import FileBase from 'react-file-base64';
+import IconButton from '@mui/material/IconButton';
+import AddPhotoAlternateIcon from '@mui/icons-material/AddPhotoAlternate';
 import { useDispatch, useSelector } from 'react-redux';
 import { createPost, updatePost } from '../../actions/posts';
 
-const Form = ({ currentId, setCurrentId }) => {
+const Form = ({ currentId, setCurrentId, setAnchorEl }) => {
   const [postData, setPostData] = useState ({ title: '', message: '', tags: '', selectedFile: ''})
   const classes = useStyles();
   const post = useSelector((state) => currentId ? state.posts.find((p) => p._id === currentId) : null);
@@ -25,6 +27,7 @@ const Form = ({ currentId, setCurrentId }) => {
       dispatch(createPost({...postData, name: user?.result.name}));
     }
     clear();
+    setAnchorEl(null);
   }
   const clear = () => {
     setCurrentId(null);
@@ -33,28 +36,34 @@ const Form = ({ currentId, setCurrentId }) => {
 
   if(!user?.result?.name) {
     return (
-      <Paper className={classes.paper}>
-        <Typography variant='h6' align='center'>
-          Please Sign In to be able to Create your own Posts or to like other's.
-        </Typography>
-      </Paper>
+      <Container component='main' maxWidth='xs'>
+        <Paper className={classes.paper}>
+          <Typography variant='h6' align='center'>
+            Please Sign In to be able to Create your own Posts.
+          </Typography>
+        </Paper>
+      </Container>
     )
   }
 
   return (
-    <Paper className={classes.paper}>
-      <form autoComplete='off' noValidate className={`${classes.root} ${classes.form}`} onSubmit={handleSubmit}>
-        <Typography variant='h6'>{currentId ? 'Edit the ' : 'Create a '}Post</Typography>
-        <TextField name='title' variant='outlined' label='Title' fullWidth value={postData.title} onChange={(e) => setPostData({ ...postData, title: e.target.value })}/>
-        <TextField name='message' variant='outlined' label='Message' multiline maxRows={3} fullWidth value={postData.message} onChange={(e) => setPostData({ ...postData, message: e.target.value })}/>
-        <TextField name='tags' variant='outlined' label='Tags' fullWidth value={postData.tags} onChange={(e) => setPostData({ ...postData, tags: e.target.value.split(",") })}/>
-        <div className={classes.fileInput}>
-          <FileBase type="file" multiple={false} onDone={({base64}) => setPostData({ ...postData, selectedFile: base64})}/>
-        </div>
-        <Button className={classes.buttonSubmit} variant="contained" color="primary" size="large" type="submit" fullWidth>Submit</Button>
-        <Button variant="contained" color="secondary" size="small" onClick={clear} fullWidth>Clear</Button>
-      </form>
-    </Paper>
+    <Container component='main' maxWidth='xs'>
+      <Paper className={classes.paper}>
+        <form autoComplete='off' noValidate className={`${classes.root} ${classes.form}`} onSubmit={handleSubmit}>
+          <Typography variant='h6'>{currentId ? 'Edit the ' : 'Create a '}Post</Typography>
+          <TextField name='title' variant='outlined' label='Title' fullWidth value={postData.title} onChange={(e) => setPostData({ ...postData, title: e.target.value })}/>
+          <TextField name='message' variant='outlined' label='Message' multiline maxRows={3} fullWidth value={postData.message} onChange={(e) => setPostData({ ...postData, message: e.target.value })}/>
+          <TextField name='tags' variant='outlined' label='Tags' fullWidth value={postData.tags} onChange={(e) => setPostData({ ...postData, tags: e.target.value.split(",") })}/>
+          <IconButton  color="primary" aria-label="upload picture" component="label">
+            <AddPhotoAlternateIcon sx={{ fontSize: 40 }}/>
+            <div className={classes.fileInput}>
+              <FileBase type="file" multiple={false} onDone={({base64}) => setPostData({ ...postData, selectedFile: base64})}/>
+            </div>          </IconButton> 
+          <Button className={classes.buttonSubmit} variant="contained" color="primary" size="large" type="submit" fullWidth>Submit</Button>
+          <Button variant="contained" color="secondary" size="small" onClick={clear} fullWidth>Clear</Button>
+        </form>
+      </Paper>
+    </Container>
   )
 }
 

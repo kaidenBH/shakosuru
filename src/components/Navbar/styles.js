@@ -2,18 +2,11 @@ import { makeStyles } from '@material-ui/core/styles';
 import { deepPurple } from '@material-ui/core/colors';
 
 export default makeStyles((theme) => ({
-  appBar: {
-    borderRadius: 15,
-    margin: '30px 0',
-    display: 'flex',
+  mainContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    padding: '10px 50px',
-  },
-  heading: {
-    color: 'rgba(0,183,255, 1)',
-    textDecoration: 'none',
+    padding: '5px 15px',
   },
   image: {
     marginTop: '12px',
@@ -43,15 +36,37 @@ export default makeStyles((theme) => ({
     color: theme.palette.getContrastText(deepPurple[500]),
     backgroundColor: deepPurple[500],
   },
+
   [theme.breakpoints.down('sm')]:{
+    mainContainer: {
+      flexDirection: 'column',
+      alignItems: 'center',
+      padding: '5px 0px',
+    },
     image: {
       height: '25px',
       marginTop: '10px',
-      marginLeft: '0',
+      marginLeft: '10px',
     },
     brandContainer: {
-      padding: '0',
-      maxWidth: '140px',
+      Width: '140px',
+    },
+    profile: {
+      width: '300px',
+      justifyContent: 'space-between',
+      alignItems: 'center',
+    },
+    purple: {
+      height: '40px',
+      width: '40px',
+    },
+    userName: {
+      marginLeft: '10px',
+      fontSize: 18,
+      height: '40px',
+    },
+    toolbar: {
+      width: '300px',
     },
   },
 }));

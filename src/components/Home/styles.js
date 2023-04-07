@@ -1,24 +1,30 @@
 import { makeStyles } from "@material-ui/core/styles";
 
 export default makeStyles((theme) => ({
-    appBar: {
-        borderRadius: 15,
-        margin: '30px 0',
-        display: 'flex',
-        flexDirection: 'row',
-        justifyContent: 'center',
-        alignItems: 'center',
+    root: {
+        '& .MuiContainer-maxWidthLg': {
+          maxWidth: '300px',
+        },
+      },
+    container: {
+        padding: '0 20px',
+        margin: '0',
+        marginTop:  theme.spacing(12),
     },
-    heading: {
-        color: '#576CBC',
-    },
-    image: {
-        marginTop: '12px',
-        marginLeft: '15px',
+    popover: {
+        position: 'fixed',
+        right: '50px',
+        zIndex: '5',
+        bottom: '10px',
+        width: '50px',
     },
     [theme.breakpoints.down('sm')]:{
         mainContainer: {
             flexDirection: 'column-reverse',
-        }   
+        },   
+        container: {
+            marginTop: '120px',
+            padding: '0 10px',
+        },
     },
 }));

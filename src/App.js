@@ -1,17 +1,18 @@
 import React from 'react'
 import { Container } from '@material-ui/core';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-
+import useStyles from './styles';
 import { Home, Navbar, Auth} from './components';
 
 const App = () => {
+  const classes = useStyles();
   return (
       <BrowserRouter>
-        <Container maxWidth= "lg">
+        <Container className={classes.mainContainer} maxWidth= {false}>
             <Navbar />
             <Routes>
-                <Route path='/' exact Component={Home} />
-                <Route path='/auth' exact Component={Auth} />
+                <Route path='/shakosuru/' exact Component={Home} />
+                <Route path='/shakosuru/auth' exact Component={Auth} />
             </Routes>
         </Container>
       </BrowserRouter>
