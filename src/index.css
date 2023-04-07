@@ -2,7 +2,7 @@ body{
     background-color: #85B0B5;
     background-image: url('./assets/backgroundwaves.svg');
     background-attachment: fixed;
-    background-size: contain;
+    background-size: cover;
     margin: 0;
     padding: 0;
 }
