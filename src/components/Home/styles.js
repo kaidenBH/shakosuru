@@ -7,13 +7,13 @@ export default makeStyles((theme) => ({
         },
       },
     container: {
-        padding: '0 20px',
+        padding: '0 60px',
         margin: '0',
         marginTop:  theme.spacing(12),
     },
     popover: {
         position: 'fixed',
-        right: '40px',
+        right: '50px',
         zIndex: '5',
         bottom: '40px',
         width: '50px',
@@ -23,8 +23,8 @@ export default makeStyles((theme) => ({
             flexDirection: 'column',
         },   
         container: {
-            marginTop: '80px',
-            padding: '0 10px',
+            marginTop:  theme.spacing(12),
+            padding: '0 30px',
         },
     },
 }));
