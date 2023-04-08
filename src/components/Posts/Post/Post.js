@@ -48,24 +48,29 @@ const Post = ({ post, setCurrentId }) => {
         </Button>
       } 
       </div> 
-      <div className={classes.details}>
-        <Typography variant='body2' color='textSecondary'>{post.tags.map((tag) => `#${tag} `)}</Typography>
+      <div className={classes.bottomSection}>
+        <div>
+          <div className={classes.details}>
+            <Typography variant='body2' color='textSecondary'>{post.tags.map((tag) => `#${tag} `)}</Typography>
+          </div>
+          <Typography className={classes.title} variant='h5' gutterBottom>{post.title}</Typography>
+          <CardContent>
+            <Typography variant='body2' color='textSecondary' component='p'>{post.message}</Typography>
+          </CardContent> 
+        </div>
+        <CardActions className={classes.cardActions}>
+          <Button style={{flex:1}} size='small' color='primary' disabled={!user?.result} onClick={()=> dispatch(likePost(post._id))}>
+            <Likes />
+          </Button>
+          <div className={classes.separator}></div>
+          {(user?.result?.id === post?.creator || user?.result?._id === post?.creator) &&
+          <Button style={{flex:1}}  size='small' color='primary' onClick={ ()=> dispatch(deletePost(post._id))}>
+            <DeleteIcon fontSize='small' />
+            &nbsp;Delete
+          </Button>
+          } 
+        </CardActions>
       </div>
-      <Typography className={classes.title} variant='h5' gutterBottom>{post.title}</Typography>
-      <CardContent>
-        <Typography variant='body2' color='textSecondary' component='p'>{post.message}</Typography>
-      </CardContent> 
-      <CardActions className={classes.cardActions}>
-        <Button size='small' color='primary' disabled={!user?.result} onClick={()=> dispatch(likePost(post._id))}>
-          <Likes />
-        </Button>
-        {(user?.result?.id === post?.creator || user?.result?._id === post?.creator) &&
-        <Button size='small' color='primary' onClick={ ()=> dispatch(deletePost(post._id))}>
-          <DeleteIcon fontSize='small' />
-          &nbsp;Delete
-        </Button>
-        } 
-      </CardActions>
     </Card>
   )
 }

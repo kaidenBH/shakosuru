@@ -10,6 +10,7 @@ export default makeStyles((theme) => ({
         padding: '0 60px',
         margin: '0',
         marginTop:  theme.spacing(12),
+        overflowY: 'sroll',
     },
     popover: {
         position: 'fixed',
