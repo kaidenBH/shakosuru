@@ -10,14 +10,20 @@ export default makeStyles({
   border: {
     border: 'solid',
   },
+  bottomSection: {
+    display: 'flex',
+    flex: 1,
+    flexDirection: 'column',
+    justifyContent: 'space-between',
+  },
   fullHeightCard: {
     height: '100%',
   },
   card: {
     display: 'flex',
-    flexDirection: 'column',
     justifyContent: 'space-between',
-    borderRadius: '5px',
+    flexDirection: 'column',
+    borderRadius: '25px',
     height: '100%',
     position: 'relative',
   },
@@ -31,7 +37,6 @@ export default makeStyles({
     position: 'absolute',
     top: '20px',
     right: '20px',
-    color: 'white',
   },
   grid: {
     display: 'flex',
@@ -39,14 +44,22 @@ export default makeStyles({
   details: {
     display: 'flex',
     justifyContent: 'space-between',
-    margin: '20px',
+    margin: '15px',
   },
   title: {
     padding: '0 16px',
   },
   cardActions: {
-    padding: '0 16px 8px 16px',
+    padding: '0',
+    height: '2.5rem',
+    borderTop: '1px solid #d1d1d1',
+    justifyContent: 'center',
     display: 'flex',
-    justifyContent: 'space-between',
+    backgroundColor: '#f2f2f2',
+  },
+  separator:{
+    height: '100%',
+    width: '1px',
+    backgroundColor: '#d1d1d1',
   },
 });
