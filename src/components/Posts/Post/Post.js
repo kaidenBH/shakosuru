@@ -63,7 +63,7 @@ const Post = ({ post, setCurrentId }) => {
             <Likes />
           </Button>
           <div className={classes.separator}></div>
-          {(user?.result?.id === post?.creator || user?.result?._id === post?.creator) &&
+          {((user?.result?.id === post?.creator || user?.result?._id === post?.creator) && (post.creator)) &&
           <Button style={{flex:1}}  size='small' color='primary' onClick={ ()=> dispatch(deletePost(post._id))}>
             <DeleteIcon fontSize='small' />
             &nbsp;Delete
