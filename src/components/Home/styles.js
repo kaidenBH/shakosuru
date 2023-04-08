@@ -13,17 +13,17 @@ export default makeStyles((theme) => ({
     },
     popover: {
         position: 'fixed',
-        right: '50px',
+        right: '40px',
         zIndex: '5',
-        bottom: '10px',
+        bottom: '40px',
         width: '50px',
     },
     [theme.breakpoints.down('sm')]:{
         mainContainer: {
-            flexDirection: 'column-reverse',
+            flexDirection: 'column',
         },   
         container: {
-            marginTop: '120px',
+            marginTop: '80px',
             padding: '0 10px',
         },
     },

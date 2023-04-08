@@ -39,7 +39,6 @@ export default makeStyles((theme) => ({
 
   [theme.breakpoints.down('sm')]:{
     mainContainer: {
-      flexDirection: 'column',
       alignItems: 'center',
       padding: '5px 0px',
     },
@@ -67,6 +66,25 @@ export default makeStyles((theme) => ({
     },
     toolbar: {
       width: '300px',
+      alignItems: 'center',
+    },
+  },
+  [theme.breakpoints.down('xs')]:{
+    userName: {
+      display: 'none',
+    },
+    toolbar: {
+      width: '90px',
+      alignItems: 'center',
+    },
+    profile: {
+      width: '90px',
+      justifyContent: 'flex-end',
+      alignItems: 'center',
+    },
+    logout: {
+      marginLeft: '10px',
+      fontSize: 12,
     },
   },
 }));

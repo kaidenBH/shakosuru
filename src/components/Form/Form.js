@@ -28,12 +28,16 @@ const Form = ({ currentId, setCurrentId, setAnchorEl }) => {
     }
     clear();
     setAnchorEl(null);
+    ScrollToTopButton();
   }
   const clear = () => {
     setCurrentId(null);
     setPostData({ title: '', message: '', tags: '', selectedFile: '' });
   }
 
+  function ScrollToTopButton() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
   if(!user?.result?.name) {
     return (
       <Container component='main' maxWidth='xs'>
