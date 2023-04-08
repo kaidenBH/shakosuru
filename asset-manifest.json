@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/shakosuru/static/css/main.a9473802.css",
-    "main.js": "/shakosuru/static/js/main.f46a1ddf.js",
+    "main.css": "/shakosuru/static/css/main.96e8ecf4.css",
+    "main.js": "/shakosuru/static/js/main.3907c6d7.js",
     "static/media/brainlogo.svg": "/shakosuru/static/media/brainlogo.90f0c6ef767198699e1c50187e25973d.svg",
     "static/media/memories.png": "/shakosuru/static/media/memories.9cfa8a4697e085d87136.png",
-    "static/media/backgroundwaves.svg": "/shakosuru/static/media/backgroundwaves.657addeb0399327b0f6490c2c557d83d.svg",
+    "static/media/backgroundwaves.svg": "/shakosuru/static/media/backgroundwaves.3c5aa9c2cc451fc578fff7770d1c6cc4.svg",
     "index.html": "/shakosuru/index.html",
     "static/media/shakosuru-Text.svg": "/shakosuru/static/media/shakosuru-Text.7673935ca1fa6c1a670be61030d1e640.svg",
-    "main.a9473802.css.map": "/shakosuru/static/css/main.a9473802.css.map",
-    "main.f46a1ddf.js.map": "/shakosuru/static/js/main.f46a1ddf.js.map"
+    "main.96e8ecf4.css.map": "/shakosuru/static/css/main.96e8ecf4.css.map",
+    "main.3907c6d7.js.map": "/shakosuru/static/js/main.3907c6d7.js.map"
   },
   "entrypoints": [
-    "static/css/main.a9473802.css",
-    "static/js/main.f46a1ddf.js"
+    "static/css/main.96e8ecf4.css",
+    "static/js/main.3907c6d7.js"
   ]
 }
