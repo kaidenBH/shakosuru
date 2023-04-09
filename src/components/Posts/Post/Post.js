@@ -38,7 +38,7 @@ const Post = ({ post, setCurrentId }) => {
         <Typography variant='body2'>{moment(post.createdAt).fromNow()}</Typography>
       </div>
       <div className={classes.overlay2}>
-      {(user?.result?.id === post?.creator || user?.result?._id === post?.creator) &&
+      {((user?.result?.id === post?.creator || user?.result?._id === post?.creator) && (post.creator)) &&
         <Button 
           className='EditPostButton'
           style={{color: 'white'}} 
