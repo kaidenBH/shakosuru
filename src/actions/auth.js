@@ -8,7 +8,7 @@ export const signin = (formData, navigate) => async (dispatch) => {
         
         dispatch({type: AUTH, data});
 
-        navigate('/shakosuru/');
+        navigate('/thoughts/');
     } catch (error) {
         console.log(error)
     }
@@ -21,7 +21,7 @@ export const signup = (formData, navigate) => async (dispatch) => {
         console.log("reached front-end");
         dispatch({type: AUTH, data});
 
-        navigate('/shakosuru/');
+        navigate('/thoughts/');
     } catch (error) {
         console.log(error)
     }

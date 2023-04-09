@@ -57,7 +57,7 @@ const Auth = () => {
         try {
           //console.log(result);
           dispatch({type: AUTH, data: { result,token }});
-          navigate('/shakosuru/');
+          navigate('/thoughts/');
         } catch (error) {
           console.log(error);
         }

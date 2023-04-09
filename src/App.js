@@ -11,8 +11,8 @@ const App = () => {
         <Container className={classes.mainContainer} maxWidth= {false}>
             <Navbar />
             <Routes>
-                <Route path='/shakosuru/' exact Component={Home} />
-                <Route path='/shakosuru/auth' exact Component={Auth} />
+                <Route path='/thoughts/' exact Component={Home} />
+                <Route path='/thoughts/auth' exact Component={Auth} />
             </Routes>
         </Container>
       </BrowserRouter>

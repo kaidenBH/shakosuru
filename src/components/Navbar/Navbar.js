@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { AppBar, Avatar, Button, Container,Grid, Toolbar, Typography } from '@material-ui/core';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
-import { shakoText, brainlogo } from '../../assets';
+import { Thoughts, brainlogo } from '../../assets';
 import useStyles from './styles';
 import { useDispatch } from 'react-redux';
 import { LOGOUT } from '../../constants/actionTypes';
@@ -22,7 +22,7 @@ const Navbar = () => {
 
     const logout = () => {
         dispatch({type: LOGOUT});
-        navigate('/shakosuru/');
+        navigate('/thoughts/');
         setUser(null);
     }
     
@@ -30,9 +30,9 @@ const Navbar = () => {
     <AppBar className={classes.appBar} color='inherit'>
          <Grid className={classes.mainContainer} container >
             <Grid item >
-                <Container className={classes.brandContainer} component={Link} to={'/shakosuru/'}>
-                    <img className={classes.image} src={ shakoText } alt='ShakuSuru' height="40" />
-                    <img className={classes.image} src={ brainlogo } alt='ShakuSuru' height="40" />
+                <Container className={classes.brandContainer} component={Link} to={'/thoughts/'}>
+                    <img className={classes.image} src={ Thoughts } alt='Thoughts' height="40" />
+                    <img className={classes.image} src={ brainlogo } alt='Thoughts' height="40" />
                 </Container>   
             </Grid>
             <Toolbar className={classes.toolbar}>
@@ -43,7 +43,7 @@ const Navbar = () => {
                         <Button variant='contained' className={classes.logout} color='secondary' onClick={logout}>Logout</Button>
                     </div>
                 ) : (
-                    <Button className={classes.signin} component={Link} to='/shakosuru/auth' variant='contained' color='primary'>Sign In</Button>
+                    <Button className={classes.signin} component={Link} to='/thoughts/auth' variant='contained' color='primary'>Sign In</Button>
                 ) }
             </Toolbar>
         </Grid>
