@@ -38,7 +38,7 @@ const Home = () => {
             <Container className={classes.container}  maxWidth={false}>
                 <Container className={classes.popover}>
                     <IconButton aria-describedby={popid} onClick={handleClick}>
-                        <AddCircleIcon color='success' sx={{ fontSize: 50 }}></AddCircleIcon>
+                        <AddCircleIcon color='primary' sx={{ fontSize: 50 }}></AddCircleIcon>
                     </IconButton>
                     <Popover 
                         id={popid}

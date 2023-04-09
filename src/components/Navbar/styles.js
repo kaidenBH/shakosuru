@@ -84,7 +84,11 @@ export default makeStyles((theme) => ({
     },
     logout: {
       marginLeft: '10px',
-      fontSize: 12,
+      fontSize: 10,
+    },
+    purple: {
+      height: '30px',
+      width: '30px',
     },
   },
 }));
