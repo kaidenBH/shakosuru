@@ -1,3 +1,3 @@
-# Front-end of the website "Shaku Suru". 
+# Front-end of the website "Thoughts". 
 ### A basic CRUD website made with MERN stack. 
-### check live website here: https://kaidenbh.github.io/shakosuru/
+### check live website here: https://kaidenbh.github.io/thoughts/
