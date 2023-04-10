@@ -36,7 +36,6 @@ const UserProfile = () => {
   }
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(formData);
     dispatch(updateUser(user?.result._id,formData, navigate));
   }
   const logout = () => {
