@@ -41,7 +41,7 @@ export default makeStyles((theme) => ({
     },
     [theme.breakpoints.down('xs')]:{
         maincontainer:{
-            marginTop:  theme.spacing(4),
+            marginTop:  theme.spacing(7),
             padding:  theme.spacing(3),
         },
         propic: {
