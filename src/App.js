@@ -2,7 +2,7 @@ import React from 'react'
 import { Container } from '@material-ui/core';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import useStyles from './styles';
-import { Home, Navbar, Auth} from './components';
+import { Home, Navbar, Auth, UserProfile} from './components';
 
 const App = () => {
   const classes = useStyles();
@@ -13,6 +13,7 @@ const App = () => {
             <Routes>
                 <Route path='/thoughts/' exact Component={Home} />
                 <Route path='/thoughts/auth' exact Component={Auth} />
+                <Route path='/thoughts/profile' exact Component={UserProfile} />
             </Routes>
         </Container>
       </BrowserRouter>

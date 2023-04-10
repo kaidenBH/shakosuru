@@ -16,13 +16,21 @@ export const signin = (formData, navigate) => async (dispatch) => {
 export const signup = (formData, navigate) => async (dispatch) => {
     try {
         //sign up the user ...
-        
         const { data } = await api.signUp(formData);
-        console.log("reached front-end");
         dispatch({type: AUTH, data});
 
         navigate('/thoughts/');
     } catch (error) {
         console.log(error)
+    }
+}
+
+export const updateUser = (id,formData, navigate) => async (dispatch) => {
+    try {
+        const { data } = await api.updateUser(id,formData);
+        dispatch({type: AUTH, data});
+        navigate('/thoughts/');
+    } catch (error) {
+        console.log(error);
     }
 }

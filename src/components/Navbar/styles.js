@@ -15,12 +15,14 @@ export default makeStyles((theme) => ({
   toolbar: {
     display: 'flex',
     justifyContent: 'flex-end',
-    width: '400px',
+    width: '250px',
+    textDecoration: 'none',
+    color: '#2B2B2B'
   },
   profile: {
     display: 'flex',
-    justifyContent: 'space-between',
-    width: '400px',
+    justifyContent: 'space-evenly',
+    width: '250px',
   },
   userName: {
     display: 'flex',
@@ -51,7 +53,7 @@ export default makeStyles((theme) => ({
       Width: '140px',
     },
     profile: {
-      width: '300px',
+      width: '200px',
       justifyContent: 'space-between',
       alignItems: 'center',
     },
@@ -65,7 +67,7 @@ export default makeStyles((theme) => ({
       height: '40px',
     },
     toolbar: {
-      width: '300px',
+      width: '200px',
       alignItems: 'center',
     },
   },
@@ -74,12 +76,12 @@ export default makeStyles((theme) => ({
       display: 'none',
     },
     toolbar: {
-      width: '90px',
+      width: '50px',
       alignItems: 'center',
     },
     profile: {
-      width: '90px',
-      justifyContent: 'flex-end',
+      width: '50px',
+      justifyContent: 'center',
       alignItems: 'center',
     },
     logout: {

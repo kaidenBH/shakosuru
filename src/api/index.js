@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-const API = axios.create({ baseURL:  "https://shakoserver.onrender.com"});
-//const API = axios.create({ baseURL:  "http://localhost:5000"});
+//const API = axios.create({ baseURL:  "https://shakoserver.onrender.com"});
+const API = axios.create({ baseURL:  "http://localhost:5000"});
 
 API.interceptors.request.use((req) => {
     if(localStorage.getItem('profile')) {
@@ -17,3 +17,4 @@ export const likePost = (id) => API.patch(`/posts/${id}/likePost`);
 
 export const signIn = (formData) => API.post('/user/signin', formData);
 export const signUp = (formData) => API.post('/user/signup', formData);
+export const updateUser = (id,formData) => API.patch(`/user/${id}/updateuser`,formData);
