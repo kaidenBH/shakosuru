@@ -17,7 +17,10 @@ const Form = ({ currentId, setCurrentId, setAnchorEl }) => {
   const user = JSON.parse(localStorage.getItem('profile'));
 
   useEffect(() => {
-    if(post) setPostData(post);
+    if(post) {
+      setPostData(post);
+      setTags(post.tags);
+    }
   },[post]);
 
   const handleSubmit = (e) => {
