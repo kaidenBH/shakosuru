@@ -14,6 +14,10 @@ const Post = ({ post, setCurrentId }) => {
   const classes = useStyles();
   const dispatch = useDispatch();
   const user = JSON.parse(localStorage.getItem('profile'));
+  
+  
+  
+  
   const Likes = () => {
     if (post.likes.length > 0) {
       return post.likes.find((like) => like === (user?.result?.id || user?.result?._id))
@@ -64,10 +68,10 @@ const Post = ({ post, setCurrentId }) => {
           </Button>
           <div className={classes.separator}></div>
           {((user?.result?.id === post?.creator || user?.result?._id === post?.creator) && (post.creator)) &&
-          <Button style={{flex:1}}  size='small' color='primary' onClick={ ()=> dispatch(deletePost(post._id))}>
-            <DeleteIcon fontSize='small' />
-            &nbsp;Delete
-          </Button>
+            <Button style={{flex:1}}  size='small' color='primary' onClick={ ()=> dispatch(deletePost(post._id))}>
+              <DeleteIcon fontSize='small' />
+              &nbsp;Delete
+            </Button>
           } 
         </CardActions>
       </div>

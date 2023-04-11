@@ -16,13 +16,13 @@ export default makeStyles((theme) => ({
     display: 'flex',
     justifyContent: 'flex-end',
     width: '250px',
-    textDecoration: 'none',
-    color: '#2B2B2B'
   },
   profile: {
     display: 'flex',
     justifyContent: 'space-evenly',
     width: '250px',
+    textDecoration: 'none',
+    color: '#2B2B2B'
   },
   userName: {
     display: 'flex',
@@ -53,7 +53,6 @@ export default makeStyles((theme) => ({
       Width: '140px',
     },
     profile: {
-      width: '200px',
       justifyContent: 'space-between',
       alignItems: 'center',
     },
@@ -67,7 +66,6 @@ export default makeStyles((theme) => ({
       height: '40px',
     },
     toolbar: {
-      width: '200px',
       alignItems: 'center',
     },
   },
@@ -76,11 +74,11 @@ export default makeStyles((theme) => ({
       display: 'none',
     },
     toolbar: {
-      width: '50px',
+      width: '100px',
       alignItems: 'center',
     },
     profile: {
-      width: '50px',
+      width: '100px',
       justifyContent: 'center',
       alignItems: 'center',
     },

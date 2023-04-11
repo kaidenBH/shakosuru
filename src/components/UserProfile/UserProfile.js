@@ -1,5 +1,6 @@
 import React,{ useState } from 'react';
-import { Avatar,Grow, Button,Grid, Container, Typography } from '@material-ui/core';
+import { Avatar,Grow, Button, Grid, Container, Typography } from '@material-ui/core';
+import LoadingButton from '@mui/lab/LoadingButton';
 import Input from './Input';
 import { useNavigate } from 'react-router-dom';
 import CancelIcon from '@mui/icons-material/Cancel';
@@ -21,6 +22,7 @@ const UserProfile = () => {
   const navigate = useNavigate();
   const [formData, setFormData] = useState(initialState);
   const [showPassword, setShowPassword] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const handleShowPassword = () => {
     setShowPassword((prevShowPassword) => !prevShowPassword);
@@ -36,7 +38,8 @@ const UserProfile = () => {
   }
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(updateUser(user?.result._id,formData, navigate));
+    setLoading(true);
+    dispatch(updateUser(user?.result._id,formData, navigate, setLoading));
   }
   const logout = () => {
       dispatch({type: LOGOUT});
@@ -75,7 +78,7 @@ const UserProfile = () => {
                 <Input name='oldPassword' label='Password' handleChange={handleChange} type='password' required />
                 <Input name='newPassword' label='New Password' handleChange={handleChange} type={showPassword ? 'text' : 'password'} handleShowPassword={handleShowPassword}/> 
               </Grid>
-              <Button type='submit' fullWidth variant='contained' color='primary' className={classes.submit} style={{marginTop: '25px'}}>Save</Button>
+              <LoadingButton type='submit' fullWidth variant='contained' color='primary' className={classes.submit} style={{marginTop: '25px'}} loading={loading}>Save</LoadingButton>
             </form>
           </Container>
         ) 

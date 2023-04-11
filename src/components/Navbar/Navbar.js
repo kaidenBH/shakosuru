@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { AppBar, Avatar, Button, Container,Grid, Toolbar, Typography } from '@material-ui/core';
-import { Link, useNavigate, useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { Thoughts, brainlogo } from '../../assets';
 import useStyles from './styles';
-import { useDispatch } from 'react-redux';
 
 
 const Navbar = () => {
@@ -12,7 +11,7 @@ const Navbar = () => {
     const location = useLocation();
 
     useEffect(() => {
-        const token = user?.token;
+        //const token = user?.token;
         //JWT
         setUser(JSON.parse(localStorage.getItem('profile')));
     }, [location]);
@@ -27,12 +26,12 @@ const Navbar = () => {
                     <img className={classes.image} src={ brainlogo } alt='Thoughts' height="40" />
                 </Container>   
             </Grid>
-            <Toolbar className={classes.toolbar} component={Link} to={'/thoughts/profile'}>
+            <Toolbar className={classes.toolbar} >
                 { user ? (
-                    <div className={classes.profile}>
+                    <Container className={classes.profile} component={Link} to={'/thoughts/profile'}>
                         <Avatar className={classes.purple} alt={user.result.name} src={user.result.picture}>{user.result.name.charAt(0)}</Avatar>
                         <Typography className={classes.userName} variant='h6'>{user.result.name}</Typography>
-                    </div>
+                    </Container>
                 ) : (
                     <Button className={classes.signin} component={Link} to='/thoughts/auth' variant='contained' color='primary'>Sign In</Button>
                 ) }

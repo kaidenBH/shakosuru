@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Avatar, Button, Typography, Paper, Grid, Container } from '@material-ui/core';
+import LoadingButton from '@mui/lab/LoadingButton';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
@@ -15,10 +16,11 @@ const initialState = {firstname: '', lastname: '', email: '', password: '', conf
 const Auth = () => {
     const classes = useStyles();
     const [isSignup, setSignUp] = useState(false);
-    const [showPassword, setShowPassword] = useState(false);
     const [formData, setFormData] = useState(initialState);
+    const [showPassword, setShowPassword] = useState(false);
     const dispatch = useDispatch();
     const navigate = useNavigate();
+    const [loading, setLoading] = useState(false);
     
     const handleShowPassword = () => {
       setShowPassword((prevShowPassword) => !prevShowPassword);
@@ -30,10 +32,11 @@ const Auth = () => {
 
     const handleSubmit = (e) => {
       e.preventDefault();
+      setLoading(true);
       if(isSignup){
-        dispatch(signup(formData, navigate));
+        dispatch(signup(formData, navigate, setLoading));
       } else {
-        dispatch(signin(formData, navigate));
+        dispatch(signin(formData, navigate, setLoading));
       }
       //console.log(formData);
     };
@@ -92,14 +95,17 @@ const Auth = () => {
               <Input name='password' label='Password' handleChange={handleChange} type={showPassword ? 'text' : 'password'} handleShowPassword={handleShowPassword}/>
               { isSignup && <Input name='confirmPassword' label='Confirm Password' handleChange={handleChange} type='password'/> }
             </Grid>
-            <Button type='submit' fullWidth variant='contained' color='primary' className={classes.submit}>
+            <div className={classes.emptyDiv}></div>
+            <LoadingButton type='submit' fullWidth variant='contained' color='primary' className={classes.submit} loading={loading}>
               {
                 isSignup ? 'Sign UP' : 'Sign In'
               }
-            </Button>
-            <Button className={classes.googleButton} color='secondary' fullWidth startIcon={<GoogleIcon />} variant='contained' onClick={loginWithGoogle}>
+            </LoadingButton>
+            <div className={classes.emptyDiv}></div>
+            <LoadingButton color='secondary' fullWidth startIcon={<GoogleIcon />} variant='contained' onClick={loginWithGoogle} loading={loading} >
               { isSignup ? 'Sign UP ' : 'Sign In ' } with GOOGLE
-            </Button>
+            </LoadingButton>
+            <div className={classes.emptyDiv}></div>
             <Grid container justifyContent='center'> 
               <Grid item>
                 <Button onClick={switchMode}>
