@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { TextField, Button, Typography, Paper, Container } from '@material-ui/core';
 import useStyles from './styles';
+import ChipInput from 'material-ui-chip-input';
 import FileBase from 'react-file-base64';
 import IconButton from '@mui/material/IconButton';
 import AddPhotoAlternateIcon from '@mui/icons-material/AddPhotoAlternate';
@@ -8,7 +9,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { createPost, updatePost } from '../../actions/posts';
 
 const Form = ({ currentId, setCurrentId, setAnchorEl }) => {
-  const [postData, setPostData] = useState ({ title: '', message: '', tags: '', selectedFile: ''})
+  const [postData, setPostData] = useState ({ title: '', message: '', selectedFile: ''})
+  const [tags, setTags] = useState([]);
   const classes = useStyles();
   const post = useSelector((state) => currentId ? state.posts.find((p) => p._id === currentId) : null);
   const dispatch = useDispatch();
@@ -21,10 +23,10 @@ const Form = ({ currentId, setCurrentId, setAnchorEl }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if(currentId){
-      dispatch(updatePost(currentId, {...postData, name: user?.result.name}));
+      dispatch(updatePost(currentId, {...postData, tags: tags, name: user?.result.name}));
     } 
     else{
-      dispatch(createPost({...postData, name: user?.result.name}));
+      dispatch(createPost({...postData, tags: tags, name: user?.result.name}));
     }
     clear();
     setAnchorEl(null);
@@ -32,9 +34,15 @@ const Form = ({ currentId, setCurrentId, setAnchorEl }) => {
   }
   const clear = () => {
     setCurrentId(null);
-    setPostData({ title: '', message: '', tags: '', selectedFile: '' });
+    setPostData({ title: '', message: '', selectedFile: '' });
+    setTags([]);
   }
-
+  const handleAdd = (tag) => {
+    setTags([...tags, tag]);
+  }
+  const handleDelete = (tagToDelete) => {
+    setTags(tags.filter((tag) => tag !== tagToDelete));
+  }
   function ScrollToTopButton() {
       window.scrollTo({ top: 0, behavior: 'smooth' });
   }
@@ -57,7 +65,7 @@ const Form = ({ currentId, setCurrentId, setAnchorEl }) => {
           <Typography variant='h6'>{currentId ? 'Edit the ' : 'Create a '}Post</Typography>
           <TextField name='title' variant='outlined' label='Title' fullWidth value={postData.title} onChange={(e) => setPostData({ ...postData, title: e.target.value })}/>
           <TextField name='message' variant='outlined' label='Message' multiline maxRows={3} fullWidth value={postData.message} onChange={(e) => setPostData({ ...postData, message: e.target.value })}/>
-          <TextField name='tags' variant='outlined' label='Tags' fullWidth value={postData.tags} onChange={(e) => setPostData({ ...postData, tags: e.target.value.split(",") })}/>
+          <ChipInput name='tags' variant='outlined' label="Tags" fullWidth style={{margin: '10px 8px'}} value={tags} onAdd={handleAdd} onDelete={handleDelete} />
           <IconButton  color="primary" aria-label="upload picture" component="label">
             <AddPhotoAlternateIcon sx={{ fontSize: 40 }}/>
             <div className={classes.fileInput}>
