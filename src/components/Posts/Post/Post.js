@@ -75,7 +75,7 @@ const Post = ({ post, setCurrentId }) => {
           </div>
           <Typography className={classes.title} variant='h5' gutterBottom>{post.title}</Typography>
           <CardContent>
-            <Typography variant='body2' color='textSecondary' component='p'>{post.message}</Typography>
+            <Typography noWrap={true}	variant='body2' color='textSecondary' component='p'>{post.message}</Typography>
           </CardContent> 
         </div>
         <CardActions className={classes.cardActions}>
@@ -89,11 +89,7 @@ const Post = ({ post, setCurrentId }) => {
                 <DeleteIcon fontSize='small' />
                 &nbsp;Delete
               </Button>
-              <Popover 
-                  id={popid}
-                  open={open}
-                  anchorEl={anchorEl}
-                  onClose={handleClose}
+              <Popover  id={popid} open={open} anchorEl={anchorEl} onClose={handleClose}
                   anchorOrigin={{
                       vertical: 'top',
                       horizontal: 'center',
