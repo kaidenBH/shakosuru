@@ -62,4 +62,18 @@ export default makeStyles({
     width: '1px',
     backgroundColor: '#d1d1d1',
   },
+  popover: {
+    display: 'flex',
+    zIndex: '5',
+    flex: 1,
+    justifyContent: 'center',
+  },
+  confirmationPop : {
+    padding: '10px',
+  },
+  ConfirmationButtons: {
+    marginTop: '10px',
+    display: 'flex',
+    justifyContent: 'space-evenly',
+  },
 });

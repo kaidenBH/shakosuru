@@ -72,9 +72,9 @@ const UserProfile = () => {
             <div className={classes.separator}></div>
             <form className={classes.form} onSubmit={handleSubmit}>
               <Grid container spacing={2}>
-                <Input name='firstname' label='First Name' defaultValue={initialState.firstname} handleChange={handleChange} autoFocus half />
-                <Input name='lastname' label='Last Name' defaultValue={initialState.lastname} handleChange={handleChange} half />
-                <Input name='email' label='Email Address' defaultValue={initialState.email} handleChange={handleChange} type='email' />
+                <Input name='firstname' label='First Name' defaultValue={initialState.firstname} handleChange={handleChange} autoFocus half required/>
+                <Input name='lastname' label='Last Name' defaultValue={initialState.lastname} handleChange={handleChange} half required/>
+                <Input name='email' label='Email Address' defaultValue={initialState.email} handleChange={handleChange} type='email' required/>
                 <Input name='oldPassword' label='Password' handleChange={handleChange} type='password' required />
                 <Input name='newPassword' label='New Password' handleChange={handleChange} type={showPassword ? 'text' : 'password'} handleShowPassword={handleShowPassword}/> 
               </Grid>

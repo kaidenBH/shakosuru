@@ -1,11 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
 import useStyles from './styles';
-import { Card, CardActions, CardContent, CardMedia, Button, Typography} from '@material-ui/core';
+import { Card, CardActions, CardContent, CardMedia, Button, Typography, Container} from '@material-ui/core';
 import ThumbUpAltIcon from '@material-ui/icons/ThumbUpAlt';
 import ThumbUpOffAltIcon from '@mui/icons-material/ThumbUpOffAlt';
 import DeleteIcon from '@material-ui/icons/Delete';
+import LoadingButton from '@mui/lab/LoadingButton';
 import EditOutlinedIcon from '@material-ui/icons/EditOutlined';
 import moment from 'moment';
+import Popover from '@mui/material/Popover';
 import Skeleton from '@mui/material/Skeleton';
 import { useDispatch } from 'react-redux';
 import { deletePost, likePost } from '../../../actions/posts';
@@ -14,9 +16,23 @@ const Post = ({ post, setCurrentId }) => {
   const classes = useStyles();
   const dispatch = useDispatch();
   const user = JSON.parse(localStorage.getItem('profile'));
-  
-  
-  
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const [loading, setLoading] = useState(false);
+
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleConfirmation = () => {
+    setLoading(true);
+    dispatch(deletePost(post._id, handleClose));
+  }
+  const handleClose = () => {
+    setLoading(false);
+    setAnchorEl(null);
+  };
+  const open = Boolean(anchorEl);
+  const popid = open ? 'simple-popover' : undefined;
+    
   
   const Likes = () => {
     if (post.likes.length > 0) {
@@ -66,12 +82,36 @@ const Post = ({ post, setCurrentId }) => {
           <Button style={{flex:1}} size='small' color='primary' disabled={!user?.result} onClick={()=> dispatch(likePost(post._id))}>
             <Likes />
           </Button>
-          {user &&<div className={classes.separator}></div>}
+          {((user?.result?.id === post?.creator || user?.result?._id === post?.creator) && (post.creator)) && <div className={classes.separator}></div>}
           {((user?.result?.id === post?.creator || user?.result?._id === post?.creator) && (post.creator)) &&
-            <Button style={{flex:1}}  size='small' color='primary' onClick={ ()=> dispatch(deletePost(post._id))}>
-              <DeleteIcon fontSize='small' />
-              &nbsp;Delete
-            </Button>
+            <Container className={classes.popover}>
+              <Button aria-describedby={popid} onClick={handleClick}  size='small' color='primary'>
+                <DeleteIcon fontSize='small' />
+                &nbsp;Delete
+              </Button>
+              <Popover 
+                  id={popid}
+                  open={open}
+                  anchorEl={anchorEl}
+                  onClose={handleClose}
+                  anchorOrigin={{
+                      vertical: 'top',
+                      horizontal: 'center',
+                  }}
+                  transformOrigin={{
+                      vertical: 'bottom',
+                      horizontal: 'center',
+                  }}
+                  >
+                  <div className={classes.confirmationPop}>
+                    <Typography variant='h6'>Are you sure you want to delete this Post?</Typography>
+                    <Container className={classes.ConfirmationButtons}>
+                      <LoadingButton variant="contained" color="secondary" size="large"  onClick={handleConfirmation} loading={loading}>Yes</LoadingButton>
+                      <Button variant="contained" color="primary" size="large" onClick={() => setAnchorEl(null)}>No</Button>
+                    </Container>
+                  </div>
+              </Popover>
+            </Container>
           } 
         </CardActions>
       </div>

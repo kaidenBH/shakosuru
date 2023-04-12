@@ -30,8 +30,8 @@ const Home = () => {
         setAnchorEl(null);
         setCurrentId(null);
     };
-      const open = Boolean(anchorEl);
-      const popid = open ? 'simple-popover' : undefined;
+    const open = Boolean(anchorEl);
+    const popid = open ? 'simple-popover' : undefined;
     
     return (
         <Grow in>

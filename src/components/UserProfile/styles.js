@@ -3,7 +3,7 @@ import { deepPurple } from '@material-ui/core/colors';
 
 export default makeStyles((theme) => ({
     maincontainer:{
-        marginTop:  theme.spacing(10),
+        marginTop:  theme.spacing(15),
         padding:  theme.spacing(2),
         position: 'relative',
     },
@@ -41,7 +41,7 @@ export default makeStyles((theme) => ({
     },
     [theme.breakpoints.down('xs')]:{
         maincontainer:{
-            marginTop:  theme.spacing(7),
+            marginTop:  theme.spacing(10),
             padding:  theme.spacing(3),
         },
         propic: {

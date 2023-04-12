@@ -17,7 +17,7 @@ export const createPost = (post) => async (dispatch) => {
         const { data } = await api.createPost(post);
         dispatch({ type: CREATE, payload: data });
     } catch (error) {
-        console.log(error);        
+        console.log(error.response.status);        
     }
 }
 
@@ -31,11 +31,12 @@ export const updatePost = (id, post) => async (dispatch) => {
     }
 }
 
-export const deletePost = (id) => async (dispatch) => {
+export const deletePost = (id, handleClose) => async (dispatch) => {
     try {
         await api.deletePost(id);
         dispatch({ type: DELETE, payload: id });
         dispatch(getPosts());
+        handleClose();
     } catch (error) {
         console.log(error);
     }

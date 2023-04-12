@@ -66,8 +66,8 @@ const Form = ({ currentId, setCurrentId, setAnchorEl }) => {
       <Paper className={classes.paper}>
         <form autoComplete='off' noValidate className={`${classes.root} ${classes.form}`} onSubmit={handleSubmit}>
           <Typography variant='h6'>{currentId ? 'Edit the ' : 'Create a '}Post</Typography>
-          <TextField name='title' variant='outlined' label='Title' fullWidth value={postData.title} onChange={(e) => setPostData({ ...postData, title: e.target.value })}/>
-          <TextField name='message' variant='outlined' label='Message' multiline maxRows={3} fullWidth value={postData.message} onChange={(e) => setPostData({ ...postData, message: e.target.value })}/>
+          <TextField name='title' variant='outlined' label='Title' fullWidth required value={postData.title} onChange={(e) => setPostData({ ...postData, title: e.target.value })}/>
+          <TextField name='message' variant='outlined' label='Message' multiline required maxRows={3} fullWidth value={postData.message} onChange={(e) => setPostData({ ...postData, message: e.target.value })}/>
           <ChipInput name='tags' variant='outlined' label="Tags" fullWidth style={{margin: '10px 8px'}} value={tags} onAdd={handleAdd} onDelete={handleDelete} />
           <IconButton  color="primary" aria-label="upload picture" component="label">
             <AddPhotoAlternateIcon sx={{ fontSize: 40 }}/>
