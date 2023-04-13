@@ -1,4 +1,4 @@
-import { FETCH_POST, FETCH_ALL, CREATE, UPDATE, DELETE, START_LOADING, END_LOADING } from '../constants/actionTypes';
+import { FETCH_POST, FETCH_ALL, CREATE, UPDATE, DELETE, UPDATEONE } from '../constants/actionTypes';
 import * as api from '../api';
 
 //Action Creators
@@ -57,7 +57,7 @@ export const deletePost = (id, handleClose) => async (dispatch) => {
 export const likespecificPost = (id,setLoading) => async (dispatch) => {
     try {
         const { data } = await api.likePost(id);
-        dispatch({ type: UPDATE, payload: data });
+        dispatch({ type: UPDATEONE, payload: data });
         dispatch(getPost(id,setLoading));
     } catch (error) {
         console.log(error);

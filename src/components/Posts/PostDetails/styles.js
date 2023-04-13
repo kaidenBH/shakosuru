@@ -6,6 +6,7 @@ export default makeStyles((theme) => ({
         marginTop:  theme.spacing(12),
         margin: theme.spacing(3),
         padding: '20px', 
+        paddingBottom: '0',
         borderRadius: '25px',
     },
     media: {
@@ -46,7 +47,36 @@ export default makeStyles((theme) => ({
     borderRadius: '25px',
     height: '39vh',
   },
-  
+
+
+  cardActions: {
+    marginTop: '20px',
+    padding: '0',
+    height: '2.5rem',
+    borderTop: '1px solid #d1d1d1',
+    justifyContent: 'center',
+    display: 'flex',
+  },
+  separator:{
+    height: '100%',
+    width: '1px',
+    backgroundColor: '#d1d1d1',
+  },
+  popover: {
+    display: 'flex',
+    zIndex: '5',
+    flex: 1,
+    justifyContent: 'center',
+  },
+  confirmationPop : {
+    padding: '10px',
+  },
+  ConfirmationButtons: {
+    marginTop: '10px',
+    display: 'flex',
+    justifyContent: 'space-evenly',
+  },
+
   [theme.breakpoints.down('xs')]:{
     postTitle: {
         fontSize: '1.7rem',
