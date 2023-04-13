@@ -1,7 +1,19 @@
-import { FETCH_ALL, CREATE, UPDATE, DELETE } from '../constants/actionTypes';
+import { FETCH_POST, FETCH_ALL, CREATE, UPDATE, DELETE, START_LOADING, END_LOADING } from '../constants/actionTypes';
 import * as api from '../api';
 
 //Action Creators
+export const getPost = (id,setLoading) => async (dispatch) => {
+    try {
+        const { data } = await api.fetchPost(id);
+        //console.log(data);
+        await dispatch({ type: FETCH_POST, payload: data});
+        setLoading(false);
+    } catch (error)
+    {
+        console.log(error);
+    }
+}
+
 export const getPosts = () => async (dispatch) => {
     try {
         const { data } = await api.fetchPosts();
@@ -42,6 +54,15 @@ export const deletePost = (id, handleClose) => async (dispatch) => {
     }
 }
 
+export const likespecificPost = (id,setLoading) => async (dispatch) => {
+    try {
+        const { data } = await api.likePost(id);
+        dispatch({ type: UPDATE, payload: data });
+        dispatch(getPost(id,setLoading));
+    } catch (error) {
+        console.log(error);
+    }
+}
 export const likePost = (id) => async (dispatch) => {
     try {
         const { data } = await api.likePost(id);

@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import useStyles from './styles';
+import { useNavigate } from 'react-router-dom';
 import { Card, CardActions, CardContent, CardMedia, Button, Typography, Container} from '@material-ui/core';
 import ThumbUpAltIcon from '@material-ui/icons/ThumbUpAlt';
 import ThumbUpOffAltIcon from '@mui/icons-material/ThumbUpOffAlt';
@@ -10,7 +11,7 @@ import moment from 'moment';
 import Popover from '@mui/material/Popover';
 import Skeleton from '@mui/material/Skeleton';
 import { useDispatch } from 'react-redux';
-import { deletePost, likePost } from '../../../actions/posts';
+import { deletePost, getPost, likePost } from '../../../actions/posts';
 
 const Post = ({ post, setCurrentId }) => {
   const classes = useStyles();
@@ -18,6 +19,7 @@ const Post = ({ post, setCurrentId }) => {
   const user = JSON.parse(localStorage.getItem('profile'));
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -32,7 +34,10 @@ const Post = ({ post, setCurrentId }) => {
   };
   const open = Boolean(anchorEl);
   const popid = open ? 'simple-popover' : undefined;
-    
+  
+  const openPost = () => {
+    navigate(`/thoughts/${post._id}`);
+  }
   
   const Likes = () => {
     if (post.likes.length > 0) {
@@ -48,11 +53,12 @@ const Post = ({ post, setCurrentId }) => {
 
   return (
     <Card className={classes.card}>
+        
       {post.selectedFile? (
         <CardMedia className={classes.media} image={post.selectedFile} title={post.title} />
         ) : (
-        <Skeleton className={classes.media} sx={{ bgcolor: 'grey.700' }} animation="wave" variant="rectangular" />
-      )}
+          <Skeleton className={classes.media} sx={{ bgcolor: 'grey.700' }} animation="wave" variant="rectangular" />
+          )}
       <div className={classes.overlay}>
         <Typography variant='h6'>{post.name}</Typography>
         <Typography variant='body2'>{moment(post.createdAt).fromNow()}</Typography>
@@ -60,10 +66,10 @@ const Post = ({ post, setCurrentId }) => {
       <div className={classes.overlay2}>
       {((user?.result?.id === post?.creator || user?.result?._id === post?.creator) && (post.creator)) &&
         <Button 
-          className='EditPostButton'
-          style={{color: 'white'}} 
-          size='small' 
-          onClick={() => setCurrentId(post._id)}>
+        className='EditPostButton'
+        style={{color: 'white'}} 
+        size='small' 
+        onClick={() => setCurrentId(post._id)}>
           <EditOutlinedIcon fontSize='medium' />
         </Button>
       } 
@@ -76,6 +82,7 @@ const Post = ({ post, setCurrentId }) => {
           <Typography className={classes.title} variant='h5' gutterBottom>{post.title}</Typography>
           <CardContent>
             <Typography noWrap={true}	variant='body2' color='textSecondary' component='p'>{post.message}</Typography>
+            <Typography	variant='body1' color='primary' component='p' onClick={openPost} style={{cursor: 'pointer'}}>See more</Typography>
           </CardContent> 
         </div>
         <CardActions className={classes.cardActions}>
