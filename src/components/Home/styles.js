@@ -12,9 +12,11 @@ export default makeStyles((theme) => ({
         marginTop:  theme.spacing(12),
     },
     popoverNewPost: {
+        display: 'flex',
+        justifyContent: 'center',
         position: 'fixed',
         right: '50px',
-        zIndex: '5',
+        zIndex: '6',
         bottom: '40px',
         width: '50px',
     },
@@ -22,7 +24,7 @@ export default makeStyles((theme) => ({
         position: 'fixed',
         right: '50%',
         zIndex: '1100',
-        top: '2rem',
+        top: '3rem',
         width: '50px',
     },
     [theme.breakpoints.down('sm')]:{

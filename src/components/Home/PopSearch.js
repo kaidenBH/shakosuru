@@ -1,9 +1,8 @@
 import React from 'react'
 import { Container, TextField } from '@material-ui/core';
-import AddCircleIcon from '@mui/icons-material/AddCircle';
 import Popover from '@mui/material/Popover';
 import IconButton from '@mui/material/IconButton';
-
+import { SearchIcon } from '../../assets';
 import useStyle from './styles';
 
 const PopSearch = ({ anchorEl, setAnchorEl }) => {
@@ -21,7 +20,7 @@ const PopSearch = ({ anchorEl, setAnchorEl }) => {
     return (
     <Container className={classes.popoverSearch}>
         <IconButton aria-describedby={popid} onClick={handleClick}>
-            <AddCircleIcon color='primary' sx={{ fontSize: 50 }}></AddCircleIcon>
+            <img  src={ SearchIcon } alt='Search' height="44" />
         </IconButton>
         <Popover 
             id={popid}
@@ -33,7 +32,7 @@ const PopSearch = ({ anchorEl, setAnchorEl }) => {
                 horizontal: 'center',
             }}
             transformOrigin={{
-                vertical: 'top',
+                vertical: 'center',
                 horizontal: 'center',
             }}
             >

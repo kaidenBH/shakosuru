@@ -1,8 +1,8 @@
 import React from 'react'
 import { Container } from '@material-ui/core';
-import AddCircleIcon from '@mui/icons-material/AddCircle';
 import Popover from '@mui/material/Popover';
 import IconButton from '@mui/material/IconButton';
+import { AddIcon } from '../../assets';
 import { Form } from '../';
 
 import useStyle from './styles';
@@ -23,7 +23,7 @@ const PopIcons = ({ currentId, setCurrentId, anchorEl, setAnchorEl }) => {
     return (
     <Container className={classes.popoverNewPost}>
         <IconButton aria-describedby={popid} onClick={handleClick}>
-            <AddCircleIcon color='primary' sx={{ fontSize: 50 }}></AddCircleIcon>
+            <img  src={ AddIcon } alt='Add' height="50" />
         </IconButton>
         <Popover 
             id={popid}
