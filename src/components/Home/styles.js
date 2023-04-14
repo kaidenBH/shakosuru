@@ -11,7 +11,7 @@ export default makeStyles((theme) => ({
         margin: '0',
         marginTop:  theme.spacing(12),
     },
-    popover: {
+    popoverNewPost: {
         position: 'fixed',
         right: '50px',
         zIndex: '5',
