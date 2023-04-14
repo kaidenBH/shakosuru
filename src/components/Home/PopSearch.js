@@ -1,13 +1,12 @@
 import React from 'react'
-import { Container } from '@material-ui/core';
+import { Container, TextField } from '@material-ui/core';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import Popover from '@mui/material/Popover';
 import IconButton from '@mui/material/IconButton';
-import { Form } from '../';
 
 import useStyle from './styles';
 
-const PopIcons = ({ currentId, setCurrentId, anchorEl, setAnchorEl }) => {
+const PopSearch = ({ anchorEl, setAnchorEl }) => {
     const classes= useStyle();
 
     const handleClick = (event) => {
@@ -15,13 +14,12 @@ const PopIcons = ({ currentId, setCurrentId, anchorEl, setAnchorEl }) => {
     };
     const handleClose = () => {
         setAnchorEl(null);
-        setCurrentId(null);
     };
     const open = Boolean(anchorEl);
     const popid = open ? 'simple-popover' : undefined;
 
     return (
-    <Container className={classes.popoverNewPost}>
+    <Container className={classes.popoverSearch}>
         <IconButton aria-describedby={popid} onClick={handleClick}>
             <AddCircleIcon color='primary' sx={{ fontSize: 50 }}></AddCircleIcon>
         </IconButton>
@@ -31,20 +29,20 @@ const PopIcons = ({ currentId, setCurrentId, anchorEl, setAnchorEl }) => {
             anchorEl={anchorEl}
             onClose={handleClose}
             anchorOrigin={{
-                vertical: 'top',
-                horizontal: 'left',
+                vertical: 'center',
+                horizontal: 'center',
             }}
             transformOrigin={{
-                vertical: 'bottom',
-                horizontal: 'right',
+                vertical: 'top',
+                horizontal: 'center',
             }}
             >
-            <div>
-                <Form currentId={currentId} setCurrentId={setCurrentId} setAnchorEl={setAnchorEl} />
+            <div >
+                <TextField name='search' variant='filled' label='Search ...' style={{width: '70vw'}} onChange={(e) => console.log(e.target.value)}/>
             </div>
         </Popover>
     </Container>
   )
 }
 
-export default PopIcons
+export default PopSearch

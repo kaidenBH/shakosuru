@@ -18,6 +18,13 @@ export default makeStyles((theme) => ({
         bottom: '40px',
         width: '50px',
     },
+    popoverSearch: {
+        position: 'fixed',
+        right: '50%',
+        zIndex: '1100',
+        top: '2rem',
+        width: '50px',
+    },
     [theme.breakpoints.down('sm')]:{
         mainContainer: {
             flexDirection: 'column',
