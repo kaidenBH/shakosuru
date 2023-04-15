@@ -14,6 +14,20 @@ export const getPost = (id,setLoading) => async (dispatch) => {
     }
 }
 
+export const getPostsBySearch = (prompts) => async (dispatch) => {
+    try {
+        const { data } = await api.fetchPosts();
+        const filteredData = data.filter(field => field['title'].toLowerCase().includes(prompts.toLowerCase()) 
+                                                || field['message'].toLowerCase().includes(prompts.toLowerCase()) 
+                                                || field['tags'].some(tag => tag.toLowerCase().includes(prompts.toLowerCase())));
+        //console.log(filteredData);
+        dispatch({ type: FETCH_ALL, payload: filteredData});
+    } catch (error)
+    {
+        console.log(error);
+    }
+}
+
 export const getPosts = () => async (dispatch) => {
     try {
         const { data } = await api.fetchPosts();

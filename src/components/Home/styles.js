@@ -15,9 +15,9 @@ export default makeStyles((theme) => ({
         display: 'flex',
         justifyContent: 'center',
         position: 'fixed',
-        right: '50px',
+        right: '2rem',
         zIndex: '6',
-        bottom: '40px',
+        bottom: '2.5rem',
         width: '50px',
     },
     popoverSearch: {
