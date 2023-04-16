@@ -17,7 +17,7 @@ function PostDetails() {
         dispatch(getPost(id));
     }, [id]);
 
-    if(!post) return null;
+    if(!post && !isLoading) return null;
     
     return (
         isLoading ? (
