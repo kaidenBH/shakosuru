@@ -14,10 +14,11 @@ const PopSearch = ({ anchorEl, setAnchorEl }) => {
 
 
     const hadnleSearch = (e) => {
-        if (e.keyCode === 13){
+        dispatch(getPostsBySearch(e.target.value));
+        /*if (e.keyCode === 13){
             dispatch(getPostsBySearch(e.target.value));
             handleClose();
-        }
+        }*/
     }
     const handleClick = (event) => {
         setAnchorEl(event.currentTarget);

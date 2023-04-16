@@ -46,7 +46,6 @@ export default makeStyles((theme) => ({
     borderRadius: '25px',
     height: '39vh',
   },
-  
   [theme.breakpoints.down('xs')]:{
     postTitle: {
         fontSize: '1.7rem',

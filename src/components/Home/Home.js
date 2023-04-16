@@ -1,6 +1,6 @@
 import React, { useState,useEffect } from 'react'
 import { Container, Grow, Grid } from '@material-ui/core';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import useStyles from './styles';
 import { getPosts } from '../../actions/posts';
 import { Posts } from '../';
@@ -10,6 +10,7 @@ import  PopSearch from './PopSearch';
 const Home = () => {
     const classes = useStyles();
     const dispatch = useDispatch();
+    const isLoading = useSelector((state) => state.loading);
     const [currentId, setCurrentId] = useState(null);
     const [anchorEl, setAnchorEl] = useState(null);
     const [anchorSearch, setAnchorSearch] = useState(null);
@@ -25,8 +26,12 @@ const Home = () => {
     return (
         <Grow in>
             <Container className={classes.container}  maxWidth={false}>
-                <PopIcons currentId={currentId} setCurrentId={setCurrentId} anchorEl={anchorEl} setAnchorEl={setAnchorEl} />
-                <PopSearch anchorEl={anchorSearch} setAnchorEl={setAnchorSearch} />
+                {!isLoading &&
+                    <>
+                        <PopIcons currentId={currentId} setCurrentId={setCurrentId} anchorEl={anchorEl} setAnchorEl={setAnchorEl} />
+                        <PopSearch anchorEl={anchorSearch} setAnchorEl={setAnchorSearch} />
+                    </>
+                }
                 <Grid className={classes.mainContainer} container >
                     <Grid item xs={12} sm={12}>
                         <Posts setCurrentId={setCurrentId} />

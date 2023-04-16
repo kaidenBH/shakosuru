@@ -69,7 +69,7 @@ const Auth = () => {
       .catch(error => {
         console.error(error);
       });
-    };
+    }
     const googleFailure = (error) => {
       console.log(error);
       console.log('google Sign In was unsuccessessful. Try again Later');

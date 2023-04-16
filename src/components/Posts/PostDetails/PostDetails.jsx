@@ -7,22 +7,21 @@ import { getPost } from '../../../actions/posts';
 import useStyles from './styles';
 
 function PostDetails() {
-    const { post, posts } = useSelector((state) => state.posts);
+    const { post } = useSelector((state) => state.posts);
+    const isLoading = useSelector((state) => state.loading);
     const dispatch = useDispatch();
-    const navigate = useNavigate();
     const classes = useStyles();
     const { id } = useParams();
-    const [isLoading, setLoading] = useState(true);
+
     useEffect (() => {
-        setLoading(true);
-        dispatch(getPost(id,setLoading));
+        dispatch(getPost(id));
     }, [id]);
-    if(!post) return null;
-    
+
+    if(!post) return "No POST currently";
     if(isLoading) {
         return(
             <Paper elevation={6} className={classes.loadingPaper}>
-                <CircularProgress size='7em' />
+                <CircularProgress thickness={4} size={70} color='primary'/>
             </Paper>
         )
     }
