@@ -19,7 +19,11 @@ export default makeStyles((theme) => ({
         zIndex: '6',
         bottom: '2.5rem',
         width: '50px',
+        "&:hover": {
+            animation: `$rotate-scale-up 0.65s ${theme.transitions.easing.easeInOut}`,
+        },
     },
+    
     popoverSearch: {
         position: 'fixed',
         right: '50%',
@@ -27,6 +31,19 @@ export default makeStyles((theme) => ({
         top: '3rem',
         width: '50px',
     },
+    
+   
+    "@keyframes rotate-scale-up": {
+        "0%": {
+          transform: "scale(1) rotateZ(0)",
+        },
+        "50%": {
+            transform: "scale(1.5) rotateZ(180deg)",
+        },
+        "100%": {
+            transform: "scale(1) rotateZ(360deg)",
+        },
+      },
     [theme.breakpoints.down('sm')]:{
         mainContainer: {
             flexDirection: 'column',
