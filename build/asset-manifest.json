@@ -1,17 +1,29 @@
 {
   "files": {
     "main.css": "/thoughts/static/css/main.394f0610.css",
+<<<<<<< HEAD
     "main.js": "/thoughts/static/js/main.6b057eb7.js",
+=======
+    "main.js": "/thoughts/static/js/main.d5796fd9.js",
+>>>>>>> main
     "static/media/brainlogo.svg": "/thoughts/static/media/brainlogo.90f0c6ef767198699e1c50187e25973d.svg",
-    "static/media/backgroundwaves.svg": "/thoughts/static/media/backgroundwaves.3c5aa9c2cc451fc578fff7770d1c6cc4.svg",
     "index.html": "/thoughts/index.html",
+    "static/media/AddIcon.svg": "/thoughts/static/media/AddIcon.75c97d4ea98800de28e2afafbd50715f.svg",
+    "static/media/SearchIcon.svg": "/thoughts/static/media/SearchIcon.de95ab8f6e25e981a6822885956ab07a.svg",
     "static/media/Thoughts.svg": "/thoughts/static/media/Thoughts.1334921585f45149261eaefa3f762866.svg",
-    "static/media/shakosuru-Text.svg": "/thoughts/static/media/shakosuru-Text.7673935ca1fa6c1a670be61030d1e640.svg",
     "main.394f0610.css.map": "/thoughts/static/css/main.394f0610.css.map",
+<<<<<<< HEAD
     "main.6b057eb7.js.map": "/thoughts/static/js/main.6b057eb7.js.map"
   },
   "entrypoints": [
     "static/css/main.394f0610.css",
     "static/js/main.6b057eb7.js"
+=======
+    "main.d5796fd9.js.map": "/thoughts/static/js/main.d5796fd9.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.394f0610.css",
+    "static/js/main.d5796fd9.js"
+>>>>>>> main
   ]
 }

@@ -7,4 +7,15 @@ export default makeStyles((theme) => ({
   actionDiv: {
     textAlign: 'center',
   },
+  loadingPosts: {
+    margin: '10vh 45vw',
+
+    
+    [theme.breakpoints.down('sm')]:{
+      margin: '10vh 42vw',
+    },
+    [theme.breakpoints.down('xs')]:{
+      margin: '10vh 30vw',
+    },
+  },
 }));

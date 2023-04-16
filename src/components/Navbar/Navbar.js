@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { AppBar, Avatar, Button, Container,Grid, Toolbar, Typography } from '@material-ui/core';
 import { Link, useLocation } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { getPosts } from '../../actions/posts';
 import { Thoughts, brainlogo } from '../../assets';
 import useStyles from './styles';
 
@@ -8,6 +10,7 @@ import useStyles from './styles';
 const Navbar = () => {
     const classes = useStyles();
     const [user, setUser] = useState(JSON.parse(localStorage.getItem('profile')));
+    const dispatch = useDispatch();
     const location = useLocation();
 
     useEffect(() => {
@@ -16,12 +19,15 @@ const Navbar = () => {
         setUser(JSON.parse(localStorage.getItem('profile')));
     }, [location]);
 
+    const handleThoughtsClick = () => {
+        dispatch(getPosts());
+    }
     
     return (
     <AppBar className={classes.appBar} color='inherit'>
          <Grid className={classes.mainContainer} container >
             <Grid item >
-                <Container className={classes.brandContainer} component={Link} to={'/thoughts/'}>
+                <Container className={classes.brandContainer} component={Link} to={'/thoughts/'} onClick={handleThoughtsClick}>
                     <img className={classes.image} src={ Thoughts } alt='Thoughts' height="40" />
                     <img className={classes.image} src={ brainlogo } alt='Thoughts' height="40" />
                 </Container>   

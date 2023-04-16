@@ -11,7 +11,7 @@ import moment from 'moment';
 import Popover from '@mui/material/Popover';
 import Skeleton from '@mui/material/Skeleton';
 import { useDispatch } from 'react-redux';
-import { deletePost, getPost, likePost } from '../../../actions/posts';
+import { deletePost, likePost } from '../../../actions/posts';
 
 const Post = ({ post, setCurrentId }) => {
   const classes = useStyles();
