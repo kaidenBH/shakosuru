@@ -2,17 +2,17 @@ import { makeStyles } from '@material-ui/core/styles';
 
 export default makeStyles((theme) => ({
     
-    postPaper: {
-        marginTop:  theme.spacing(12),
-        margin: theme.spacing(3),
-        padding: '20px', 
-        borderRadius: '25px',
-    },
-    media: {
-    borderRadius: '20px',
-    objectFit: 'cover',
-    width: '100%',
-    maxHeight: '600px',
+  postPaper: {
+      marginTop:  theme.spacing(12),
+      margin: theme.spacing(3),
+      padding: '20px', 
+      borderRadius: '25px',
+  },
+  media: {
+  borderRadius: '20px',
+  objectFit: 'cover',
+  width: '100%',
+  maxHeight: '600px',
 
   },
   card: {

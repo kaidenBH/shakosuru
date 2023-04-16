@@ -10,7 +10,7 @@ const Posts = ({ setCurrentId }) => {
   const classes = useStyles();
 
 
-  if(!posts.length && !isLoading) return 'No posts currently';
+  if(!posts.length && !isLoading) return null;
   return (
     isLoading? <CircularProgress thickness={6} size={70} color='secondary' className={classes.loadingPosts} /> : (
       <Grid className={classes.container} container alignItems='stretch' spacing={3}>
