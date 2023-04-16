@@ -2,13 +2,16 @@ import { FETCH_POST, FETCH_ALL, CREATE, UPDATE, DELETE, START_LOADING, END_LOADI
 import * as api from '../api';
 
 //Action Creators
-let AllData = null;
+let PublicData = null;
+
 export const getPost = (id) => async (dispatch) => {
     try {
         dispatch({type: START_LOADING});
+
         const { data } = await api.fetchPost(id);
         //console.log(data);
         await dispatch({ type: FETCH_POST, payload: data});
+        
         dispatch({type: END_LOADING});
     } catch (error)
     {
@@ -18,7 +21,7 @@ export const getPost = (id) => async (dispatch) => {
 
 export const getPostsBySearch = (prompts) => async (dispatch) => {
     try {
-        const filteredData = AllData.filter(field => field['title'].toLowerCase().includes(prompts.toLowerCase()) 
+        const filteredData = PublicData.filter(field => field['title'].toLowerCase().includes(prompts.toLowerCase()) 
                                                 || field['message'].toLowerCase().includes(prompts.toLowerCase()) 
                                                 || field['tags'].some(tag => tag.toLowerCase().includes(prompts.toLowerCase())));
         //console.log(filteredData);
@@ -32,9 +35,11 @@ export const getPostsBySearch = (prompts) => async (dispatch) => {
 export const getPosts = () => async (dispatch) => {
     try {
         dispatch({type: START_LOADING});
+
         const { data } = await api.fetchPosts();
-        AllData = data;
+        PublicData = data;
         dispatch({ type: FETCH_ALL, payload: data});
+
         dispatch({type: END_LOADING});
     } catch (error)
     {
@@ -44,7 +49,7 @@ export const getPosts = () => async (dispatch) => {
 export const getPostsWithoutLoad = () => async (dispatch) => {
     try {
         const { data } = await api.fetchPosts();
-        AllData = data;
+        PublicData = data;
         dispatch({ type: FETCH_ALL, payload: data});
     } catch (error)
     {

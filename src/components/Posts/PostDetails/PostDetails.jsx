@@ -21,10 +21,8 @@ function PostDetails() {
     
     return (
         isLoading ? (
-            console.log('ra7 najhal'),
-
             <Paper elevation={6} className={classes.loadingPaper}>
-                <CircularProgress thickness={4} size={70} color='primary'/>
+                <CircularProgress thickness={5} size={70} color='primary'/>
             </Paper>
         ) : (
             <Grow in>
